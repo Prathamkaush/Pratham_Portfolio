@@ -38,8 +38,8 @@ const projects = {
       "Projects showcase",
       "Contact form with validation"
     ],
-    github: "https://github.com/pratham/portfolio",
-    live: "https://pratham-portfolio.com",
+    github: "https://github.com/Prathamkaush/Pratham_Portfolio",
+    live: "https://pratham-portfolio-skz7.onrender.com/",
     screenshots: ["/images/Screenshot (10).png", "/images/Screenshot (11).png"]
   }
 };
