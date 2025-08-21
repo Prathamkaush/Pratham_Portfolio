@@ -1,0 +1,77 @@
+/* Project Details Page */
+.container-project-details {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.container-project-details h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  text-align: center;
+  color: #222;
+}
+
+.container-project-details p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: center;
+  margin-bottom: 25px;
+  color: #555;
+}
+
+.container-project-details h2 {
+  margin-top: 30px;
+  font-size: 1.6rem;
+  color: #444;
+  border-left: 4px solid #4CAF50;
+  padding-left: 10px;
+}
+
+.container-project-details ul {
+  margin: 15px 0;
+  padding-left: 20px;
+}
+
+.container-project-details ul li {
+  margin-bottom: 8px;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #555;
+  list-style-type: disc;
+}
+
+.container-project-details .btn {
+  display: inline-block;
+  margin: 15px 10px 25px 0;
+  padding: 10px 18px;
+  background: #4CAF50;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: 0.3s ease;
+}
+
+.container-project-details .btn:hover {
+  background: #43a047;
+  transform: scale(1.05);
+}
+
+.container-project-details img {
+  max-width: 100%;
+  height: auto;
+  margin: 15px 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+}
+
+.container-project-details img:hover {
+  transform: scale(1.03);
+}

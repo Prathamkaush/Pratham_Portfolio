@@ -1,0 +1,80 @@
+*{
+    padding: 0;
+    margin:0;
+}
+body{
+    background-color: black;
+}
+.containor-home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+    padding: 2rem;
+
+    /* your background color back */
+    background: black;   /* Dark theme */
+    color: #EEEEEE;
+}
+
+.text-box h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #00ADB5;
+}
+
+.text-box p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #EEEEEE;
+}
+
+/* Center Buttons */
+.row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.row a {
+    text-decoration: none;
+    background: #00ADB5;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.row a.btn {
+    background: transparent;
+    border: 2px solid #00ADB5;
+}
+
+.row a:hover {
+    background: #393E46;
+    color: #00ADB5;
+}
+
+/* Social Icons */
+.social {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social a {
+    font-size: 1.8rem;
+    color: #00ADB5;
+    transition: 0.3s;
+}
+
+.social a:hover {
+    color: #EEEEEE;
+}

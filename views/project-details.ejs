@@ -1,0 +1,29 @@
+<%- include('partials/header') %>
+<div class="container-project-details">
+  <h1><%= project.title %></h1>
+  <p><%= project.description %></p>
+
+  <h2>🚀 Technologies Used</h2>
+  <ul>
+    <% project.technologies.forEach(function(tech){ %>
+      <li><%= tech %></li>
+    <% }) %>
+  </ul>
+
+  <h2>💡 Key Features</h2>
+  <ul>
+    <% project.features.forEach(function(feature){ %>
+      <li><%= feature %></li>
+    <% }) %>
+  </ul>
+
+  <h2>🔗 Links</h2>
+  <a href="<%= project.github %>" target="_blank" class="btn">GitHub Repo</a>
+  <a href="<%= project.live %>" target="_blank" class="btn">Live Demo</a>
+
+  <h2>📸 Screenshots</h2>
+  <% project.screenshots.forEach(function(img){ %>
+    <img src="<%= img %>" alt="Screenshot">
+  <% }) %>
+</div>
+<%- include('partials/footer') %>

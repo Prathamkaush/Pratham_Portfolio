@@ -1,0 +1,63 @@
+/* --- base tweaks --- */
+* { box-sizing: border-box; }
+html, body { overflow-x: hidden; } /* stops horizontal scroll from hidden menu */
+
+/* container + nav (keep your existing styles as-is) */
+.container-nav { background:#121212; padding:10px 20px; position:sticky; top:0; z-index:100; }
+nav { display:flex; justify-content:space-between; align-items:center; }
+
+/* logo */
+.logo a { display:flex; align-items:center; text-decoration:none; color:#fff; font-weight:700; font-size:1.1rem; }
+.logo img {width:40px; height:40px; margin-right:10px; border-radius:50%; }
+
+/* desktop links */
+.nav-links { list-style:none; margin:0; padding:0; }
+.nav-links li { list-style:none; }
+.nav-links li a { text-decoration:none; color:#ddd; font-size:16px; transition:color .25s; }
+.nav-links li a:hover { color:#00bcd4; }
+
+/* hamburger (hidden on desktop) */
+.menu-toggle { display:none; font-size:26px; color:#fff; cursor:pointer; }
+
+/* -------- desktop layout -------- */
+@media (min-width: 769px) {
+  .nav-links { display:flex; gap:22px; }
+  .menu-toggle { display:none; }
+}
+
+/* -------- mobile layout -------- */
+@media (max-width: 768px) {
+  /* hide off-canvas by default */
+  .nav-links {
+    position: fixed;
+    top: 64px;          /* below navbar height */
+    right: 0;
+    width: 80vw;        /* menu panel width */
+    max-width: 300px;
+    background: #1e1e1e;
+    border-radius: 12px 0 0 12px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    /* keep it out of view & non-interactive */
+    transform: translateX(110%);
+    opacity: 0;
+    pointer-events: none;
+
+    /* smooth slide-in */
+    transition: transform .3s ease, opacity .2s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,.45);
+    z-index: 2000;
+  }
+
+  /* show when active */
+  .nav-links.active {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .menu-toggle { display:block; }
+}
