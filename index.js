@@ -1,7 +1,10 @@
 import express from 'express';
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
-const port = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
@@ -74,6 +77,6 @@ app.get("/projects/:id", (req, res) => {
 });
 
 
-app.listen(3000, () => {
-    console.log(`Server is running on http://localhost:${port}`);
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
 })
