@@ -1,0 +1,25 @@
+<style>
+    th{border: 1px solid black; background-color: lightblue;}
+    td {border: 1px solid black;background-color: red;}
+    td:hover {background-color: #D6EEEE;}
+</style>
+<div class="container">
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Message</th>
+            <th>Action</th>
+        </tr>
+        <% contacts.forEach(contact => { %>
+            <tr>
+                <td><%= contact.name %></td>
+                <td><%= contact.email %></td>
+                <td><%= contact.message %></td>
+                <td><form  class="card-link " action="/delete/<%=contact.id%>" method="POST">
+      <button class="btn btn-primary m-1 rounded-pill" type="submit">Delete</button>
+    </form></td>
+            </tr>
+        <% }) %>
+    </table>
+</div>

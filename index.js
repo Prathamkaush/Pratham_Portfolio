@@ -1,4 +1,6 @@
-import express from 'express';
+import express from "express";
+import pg from "pg";
+import bodyParser from "body-parser";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -8,7 +10,12 @@ const PORT = process.env.PORT || 3000;
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
+app.use(bodyParser.urlencoded({ extended: true }));
 
+const db = new pg.Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: { rejectUnauthorized: false }
+});
 
 const projects = {
   "books-app": {
@@ -58,9 +65,41 @@ app.get('/contact',(req,res)=>{
     res.render('contact', { title: 'Contact me' });
 })
 
+app.post("/contact", async (req, res) => {
+  const { name, email, message } = req.body;
+  try {
+    await db.query(
+      "INSERT INTO portfolio_contacts (name, email, message) VALUES ($1, $2, $3)",
+      [name, email, message]
+    );
+    res.render("contact.ejs",  { successMessage: "✅ Message sent successfully!", failureMessage: null });
+  } catch (err) {
+    console.error("Error inserting contact:", err);
+    res.status(500).render("contact.ejs" , { successMessage: null, failureMessage: "❌ Failed to send message. Please try again later." });
+  }
+});
+
+app.get('/contact-sub', async(req,res)=>{
+  const result = await db.query("SELECT * FROM portfolio_contacts");
+  const contacts = result.rows;
+    res.render('contact-sub', { contacts});
+})
+
+app.post('/delete/:id', async (req, res) => {
+  const contactId = req.params.id;
+  try {
+    await db.query("DELETE FROM portfolio_contacts WHERE id = $1", [contactId]);
+    res.redirect('/contact-sub');
+  } catch (err) {
+    console.error("Error deleting contact:", err);
+    res.status(500).send("Error deleting contact");
+  }
+});
 app.get('/projects',(req,res)=>{
     res.render('projects', { title: 'Projects' });
 })
+
+
 
 app.get("/projects", (req, res) => {
   res.render("projects"); 

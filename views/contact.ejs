@@ -7,7 +7,14 @@
         </hero>
     </div>
 
-    <form action="/send-message" method="POST">
+    <% if (locals.successMessage) { %>
+        <script>alert("<%= successMessage %>");</script>
+    <% } %>
+
+    <% if (locals.failureMessage) { %>
+        <script>alert("<%= failureMessage %>");</script>
+    <% } %>
+    <form action="/contact" method="POST">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>
 
@@ -19,5 +26,6 @@
 
         <button type="submit">Send Message</button>
     </form>
+   
 </div>
 <%- include('partials/footer') %>
